@@ -1,0 +1,206 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+   -webkit-app-region: drag;
+   user-select: none;
+   margin: 0%;
+   background: transparent;
+}
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  width: 320px;
+  height: 380px;
+}
+
+.app::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(Assets/Outer\ frame.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 999;
+}
+
+button {
+  user-select: none;
+  -webkit-app-region: no-drag;
+  background: transparent;
+  border: transparent;
+  justify-content: center;
+}
+
+#min-btn {
+  background-image: url(Assets/mini1.svg);
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 40px;
+}
+#close-btn {
+  background-image: url(Assets/close1.svg);
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 40px;
+}
+
+.titlebar {
+  display: flex;
+  flex-direction: row;
+  background-image: url(Assets/Titlebar.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 63px;
+  gap: 8px;
+  padding-right: 15px;
+}
+
+@font-face {
+  font-family: 'Akira';
+  src: url('Fonts/Akira.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Vividly';
+  src: url('Fonts/Vividly-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#title {
+  color:#EEE2DF;
+  font-family: "Vividly";
+  font-size:40px;
+  font-style: normal;
+  text-align:center;
+  padding-top:13px;
+  padding-left: 13px;
+  margin: 0;
+  flex-grow: 1;
+}
+
+
+.background::after {
+  content: "";
+  position: absolute;
+  top: 46%;
+  left: 52%;
+  width: 280px;
+  height: 285px;
+  transform: translate(-50%, -50%);
+  background-image: url(Assets/stars.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 999; 
+}
+
+.background {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url(Assets/backgroud.svg);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  width:100%;
+  height:317px;
+  justify-content: center;
+  gap: 25px;
+  z-index: 0;
+  position: relative;
+}
+
+@keyframes planetFloat {
+  0%,100% {transform: translateX(-90px);}
+  50% { transform: translateX(-90px) translateY(-4px); }
+}
+
+.calendar::after {
+  content: "";
+  position:absolute;
+  background-image: url(Assets/planet.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 80px;
+  height: 80px;
+  top:-40px;
+  transform: translateX(-90px);
+  z-index: 999;
+  pointer-events: auto;
+  cursor: pointer;
+  animation: planetFloat 2s ease-in-out infinite;
+}
+
+.calendar {
+  background-image: url(Assets/calendar.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 190px;
+  position: relative;
+  padding-bottom: 60px;
+  padding-left: 49px;
+  padding-right: 55px;
+  padding-top: 35px;
+  cursor: pointer;
+}
+
+
+.calendar::before {
+  content: "";
+  position:absolute;
+  background-image: url(Assets/shadow.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 200px;
+  height: 190px;
+  top:13px;
+  transform: translateX(12px);
+  z-index: -1;
+}
+
+#month {
+  color: #5b61b2;
+  font-family:"Vividly";
+  font-size: 40px;
+  font-style:normal;
+  text-align: center;
+  position: relative;
+}
+#day {
+  color:#5b61b2;
+  font-family: "Akira";
+  font-size: 88px;
+  text-align: center;
+  margin:0;
+  line-height: 1;
+  margin-top: 30px;
+}
+
+#weekday {
+  color: #5b61b2;
+  font-family: "Vividly";
+  font-size: 40px;
+  font-style:normal;
+  text-align: center;
+  margin:0;
+}
